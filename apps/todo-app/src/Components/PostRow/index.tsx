@@ -1,12 +1,38 @@
 import React from 'react';
 
-const { post } = this.props;
-const { checked } = this.state;
+const axios = require('axios').default;
+
 
 class PostRow extends React.Component {
+
+    // constructor(props) {
+    //     super(props);
+    //     this.state = {
+    //         post : []
+    //     }
+    // }
+
+    // axios.get('')
+
+    // componentDidMount() {
+    //     fetch("http://localhost:3000/posts")
+    //     .then(response => response.json())
+    //     .then(response => {
+    //         this.setState({
+    //             post : response
+    //         })
+    //         console.log('abc', response)
+    //     })
+    //     .catch(err => {
+    //         console.log(err);
+    //     })
+    // }
+    
   render() {
+  
+    const { post } = this.props;
     return (
-      <div>
+  
         <tbody>
           <tr>
             <th scope="row">
@@ -20,9 +46,9 @@ class PostRow extends React.Component {
             <td>{post.id}</td>
             <td>{post.title}</td>
             <td>{post.author}</td>
-            <td>{post.status}</td>
             <td>{post.publishedDate}</td>
             <td>{post.com}</td>
+            <td>{post.status}</td>
             <td>{post.views}</td>
             <td>
               <button>Edit</button>
@@ -32,7 +58,7 @@ class PostRow extends React.Component {
             </td>
           </tr>
         </tbody>
-      </div>
+
     );
   }
 }

@@ -2,8 +2,9 @@ import React from 'react';
 import PostRow from '../PostRow';
 
 class PostTable extends React.Component {
+  
+
   state = {
-    checked: false,
     posts: [
       {
         id: '01',
@@ -23,19 +24,21 @@ class PostTable extends React.Component {
         com: true,
         views: 2000,
       },
+      
     ],
   };
 
   renderData = () => {
     let res = null;
-    const dataPost = this.state;
+    const dataPost = this.state.posts;
+    console.log('aaa', this.state);
     res = dataPost.map((post, index) => {
-      return <PostRow key={index} post={post}></PostRow>;
+      return <PostRow key={index} post={post} />;
     });
     return res;
   };
 
-  render() {
+  render() { 
     return (
       <>
         <div className="card card-cascade narrower">
@@ -83,6 +86,7 @@ class PostTable extends React.Component {
                     <th className="th-lg"></th>
                   </tr>
                 </thead>
+                  {this.renderData()}
               </table>
             </div>
           </div>
