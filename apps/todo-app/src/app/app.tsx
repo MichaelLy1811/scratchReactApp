@@ -4,6 +4,8 @@ import ReactDOM from 'react-dom';
 import './app.scss';
 import PostTable from '../Components/PostTable';
 import PostRow from '../Components/PostRow';
+import SearchBar from '../Components/search-bar/search-bar';
+import ActionButtons from '../Components/action-buttons/action-buttons';
 
 export const App = () => {
   /*
@@ -12,28 +14,18 @@ export const App = () => {
    * Note: The corresponding styles are in the ./app.scss file.
    */
 
-  return <PostTable />;
-
-  const POSTS = [
-    {
-      id: '01',
-      title: 'this is title',
-      author: 'michael',
-      status: 'published',
-      publishedDate: '01/01/2020',
-      com: true,
-      views: 1000,
-    },
-    {
-      id: '02',
-      title: 'this is second title',
-      author: 'michael',
-      status: 'published',
-      publishedDate: '02/02/2020',
-      com: true,
-      views: 2000,
-    },
-  ];
+  return (
+    <div className="md-form">
+      <tr>
+        <td>
+          <SearchBar />
+        </td>
+        <td>
+          <ActionButtons />
+        </td>
+      </tr>
+      <PostTable />
+    </div>
+  );
 };
-
 export default App;
